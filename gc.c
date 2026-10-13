@@ -1033,6 +1033,15 @@ void stella_gc_init(StellaGcConfig const* config) {
         !custom_collection_sites || ((collection_sites & CS_ALLOCATION) != 0),
         "Allocation should always perform scanning"
     );
+    ensure_abi(
+        !custom_threshold ||
+            (custom_threshold >= 0.0 && custom_threshold <= 1.0),
+        "Threshild out of [0;1]"
+    );
+    ensure_abi(
+        !custom_steps || custom_steps > 0, "At least one step requested"
+    );
+
     bakers_gc_config bakers_config = {
         .scan_per_step = custom_steps ? budgeted_steps : 1,
         .forced_scan_threshold =
