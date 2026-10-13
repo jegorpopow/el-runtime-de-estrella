@@ -1,0 +1,25 @@
+language core;
+
+fn churn(k : Nat) -> Unit {
+  return let r = Ref::new(Nat::zero) in
+    r := Nat::rec(k, Nat::zero, |i, acc| Nat::succ(acc))
+}
+
+fn deep(n : Nat) -> Nat {
+  return let a = Nat::succ(Nat::zero) in
+    let b = Nat::succ(a) in
+    let c = Nat::succ(b) in
+    let d = Nat::succ(c) in
+    let e = Nat::succ(d) in
+    let f = Nat::succ(e) in
+    let g = Nat::succ(f) in
+    let h = Nat::succ(g) in
+    let i = Nat::succ(h) in
+    let j = Nat::succ(i) in
+    churn(n);
+    Nat::rec(n, j, |k, acc| Nat::succ(acc))
+}
+
+fn main(n : Nat) -> Nat {
+  return deep(n)
+}

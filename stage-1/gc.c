@@ -1076,6 +1076,10 @@ void stella_gc_register_permanent_root(StellaValue* root) {
 StellaValue stella_gc_alloc(StellaObjectDescriptor const* descriptor) {
     ensure_active();
     validate_descriptor(descriptor);
+    ensure_abi(
+        (descriptor->flags & STELLA_DESCRIPTOR_STATIC) == 0,
+        "heap allocation requested with static descriptor"
+    );
 
     scan_budgeted(&g_gc, CS_ALLOCATION);
 

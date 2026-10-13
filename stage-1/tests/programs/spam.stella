@@ -1,0 +1,15 @@
+language core;
+
+fn churn(k : Nat) -> Unit {
+  return let r = Ref::new(Nat::zero) in
+    r := Nat::rec(k, Nat::zero, |i, acc| Nat::succ(acc))
+}
+
+fn churn_many(k : Nat) -> Unit {
+  return Nat::rec(k, Unit::unit, |i, acc| churn(k))
+}
+
+fn main(n : Nat) -> Nat {
+  return let g = churn_many(n) in
+    Nat::succ(Nat::zero)
+}

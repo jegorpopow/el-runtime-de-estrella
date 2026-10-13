@@ -1,0 +1,13 @@
+language core;
+
+fn bump(k : Nat) -> fn(Ref[Nat]) -> Nat {
+  return fn(r : Ref[Nat]) {
+    return Nat::rec(k, !r, |i, acc| Nat::succ(acc))
+  }
+}
+
+fn main(n : Nat) -> Nat {
+  return let r = Ref::new(Nat::zero) in
+    let g = (r := bump(n)(r)) in
+    !r
+}

@@ -1,0 +1,25 @@
+language core;
+
+fn add(n : Nat) -> fn(Nat) -> Nat {
+  return fn(m : Nat) { return Nat::rec(n, m, |i, acc| Nat::succ(acc)) }
+}
+
+fn total(t : List[Nat]) -> Nat {
+  return match t {
+    List::nil => Nat::zero
+  | List::cons(h, tl) => add(h)(total(tl))
+  }
+}
+
+fn churn(k : Nat) -> Unit {
+  return let r = Ref::new(Nat::zero) in
+    r := Nat::rec(k, Nat::zero, |i, acc| Nat::succ(acc))
+}
+
+fn main(n : Nat) -> Nat {
+  return let shared = Nat::rec(n, Nat::zero, |i, acc| Nat::succ(acc)) in
+    let g = churn(n) in
+    total(List::cons(shared,
+             List::cons(shared,
+               List::cons(shared, List::nil as List[Nat]))))
+}
