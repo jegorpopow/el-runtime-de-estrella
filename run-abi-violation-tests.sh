@@ -2,7 +2,7 @@
 set -u
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
-BUILD_DIR="$ROOT/build/abi-violation"
+BUILD_DIR="$ROOT/build-tests/abi-violation"
 EXPECTED="stella-c-gc-abi-v1: ABI violation:"
 
 DEBUG=0

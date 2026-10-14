@@ -3,7 +3,7 @@ set -u
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 SRC_DIR="$ROOT/tests/programs"
-BUILD_DIR="$ROOT/build/programs"
+BUILD_DIR="$ROOT/build-tests/programs"
 
 DEBUG=""
 [[ "${1:-}" == "-d" ]] && DEBUG="-d"

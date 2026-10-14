@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdnoreturn.h>
-#include <stella/gc.h>
+#include "stella/gc.h"
 #include <string.h>
 #include "stella/runtime.h"
 
