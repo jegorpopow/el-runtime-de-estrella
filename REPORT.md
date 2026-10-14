@@ -2,8 +2,8 @@
 
 Автор: Егор Попов
 
-[Репозиторий](https://github.com/jegorpopow/el-runtime-de-Estrella): 
-[Коммит](https://github.com/jegorpopow/el-runtime-de-Estrella/commit/19629c43e58c2557e8cdff74cea7c3e5b1aa2a04)
+[Репозиторий](https://github.com/jegorpopow/el-runtime-de-estrella): 
+[Коммит](https://github.com/jegorpopow/el-runtime-de-estrella/commit/d2e28443a8a76ef42e266708cca8554748d81eea)
 
 ## Сборка и запуск
 
